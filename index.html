@@ -636,189 +636,141 @@
   "use strict";
 
   // =========================
-  //  STATE CENTRALISÉ
+  //  CACHE DES ÉLÉMENTS
   // =========================
-  const state = {
-    currentSlide: 0,
-    slideTimer: null,
-    scrollRaf: null,
-    currentPage: null
-  };
+  const pages = document.querySelectorAll('.page');
+  const mainNav = document.getElementById('mainNav');
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.slide-dot');
+  const menuFilters = document.querySelectorAll('.menu-filter');
+  const dishCards = document.querySelectorAll('.dish-card');
+
+  let currentSlide = 0;
+  let slideTimer = null;
+  let scrollRaf = null;
 
   // =========================
-  //  CACHE (lazy + stable)
-  // =========================
-  const DOM = {
-    pages: document.querySelectorAll('.page'),
-    mainNav: document.getElementById('mainNav'),
-    slides: document.querySelectorAll('.hero-slide'),
-    dots: document.querySelectorAll('.slide-dot'),
-    menuFilters: document.querySelectorAll('.menu-filter'),
-    dishCards: document.querySelectorAll('.dish-card')
-  };
-
-  // =========================
-  //  NAVIGATION
+  //  NAVIGATION / HISTORIQUE
   // =========================
   function showPage(pageId, saveHistory = true) {
-    if (state.currentPage === pageId) return;
+    pages.forEach(page => page.classList.remove('active'));
 
-    const target = document.getElementById('page-' + pageId);
-    if (!target) return;
+    const targetPage = document.getElementById('page-' + pageId);
+    if (!targetPage) return;
 
-    // désactive ancienne page
-    document.querySelector('.page.active')?.classList.remove('active');
-
-    // active nouvelle
-    target.classList.add('active');
-    state.currentPage = pageId;
-
-    window.scrollTo(0, 0);
+    targetPage.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'instant' });
 
     if (saveHistory) {
       history.pushState({ page: pageId }, "", "#" + pageId);
     }
 
-    requestAnimationFrame(handleReveal);
+    requestAnimationFrame(() => {
+      handleReveal();
+    });
   }
 
-  window.addEventListener('popstate', (e) => {
-    const page =
-      e.state?.page ||
-      window.location.hash.slice(1) ||
-      'home';
-
+  window.addEventListener('popstate', (event) => {
+    const page = event.state?.page || window.location.hash.replace('#', '') || 'home';
     showPage(page, false);
   });
 
   // =========================
-  //  SLIDER (plus robuste)
+  //  SLIDES
   // =========================
   function goToSlide(index) {
-    const { slides, dots } = DOM;
-    const len = slides.length;
+    if (!slides.length || !dots.length) return;
+    if (!slides[currentSlide] || !dots[currentSlide]) return;
 
-    if (len === 0) return;
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
 
-    slides[state.currentSlide]?.classList.remove('active');
-    dots[state.currentSlide]?.classList.remove('active');
+    currentSlide = index % slides.length;
 
-    state.currentSlide = (index + len) % len;
-
-    slides[state.currentSlide]?.classList.add('active');
-    dots[state.currentSlide]?.classList.add('active');
+    if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+    if (dots[currentSlide]) dots[currentSlide].classList.add('active');
   }
 
   function startSlideShow() {
-    if (DOM.slides.length <= 1 || state.slideTimer) return;
+    if (slides.length <= 1) return;
 
-    state.slideTimer = setInterval(() => {
-      goToSlide(state.currentSlide + 1);
+    stopSlideShow();
+    slideTimer = setInterval(() => {
+      goToSlide(currentSlide + 1);
     }, 6000);
   }
 
   function stopSlideShow() {
-    clearInterval(state.slideTimer);
-    state.slideTimer = null;
+    if (slideTimer) {
+      clearInterval(slideTimer);
+      slideTimer = null;
+    }
   }
 
   // =========================
-  //  FILTRE MENU (GPU friendly)
+  //  FILTRE MENU
   // =========================
   function filterMenu(btn, category) {
-    DOM.menuFilters.forEach(b => b.classList.remove('active'));
-    btn?.classList.add('active');
+    menuFilters.forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
 
-    DOM.dishCards.forEach(card => {
-      const match =
-        category === 'all' ||
-        card.dataset.cat === category;
+    dishCards.forEach(card => {
+      const match = category === 'all' || card.dataset.cat === category;
 
       if (match) {
-        card.style.display = '';
+        card.style.display = 'block';
         requestAnimationFrame(() => {
           card.style.opacity = '1';
-          card.style.transform = 'scale(1)';
         });
       } else {
         card.style.opacity = '0';
-        card.style.transform = 'scale(0.95)';
-
         setTimeout(() => {
           if (card.style.opacity === '0') {
             card.style.display = 'none';
           }
-        }, 250);
+        }, 300);
       }
     });
   }
 
   // =========================
-  //  REVEAL (optimisé)
+  //  REVEAL / ANIMATIONS
   // =========================
   function handleReveal() {
-    const reveals = document.querySelectorAll('.reveal:not(.visible)');
-    const vh = window.innerHeight;
+    const reveals = document.querySelectorAll('.reveal');
+    const windowHeight = window.innerHeight;
 
-    for (let i = 0; i < reveals.length; i++) {
-      const el = reveals[i];
-      if (el.getBoundingClientRect().top < vh - 50) {
+    reveals.forEach(el => {
+      if (el.classList.contains('visible')) return;
+
+      const revealTop = el.getBoundingClientRect().top;
+      if (revealTop < windowHeight - 50) {
         el.classList.add('visible');
       }
-    }
+    });
   }
 
-  // =========================
-  //  SCROLL (throttle RAF)
-  // =========================
   function handleScroll() {
-    if (state.scrollRaf) return;
+    if (scrollRaf) return;
 
-    state.scrollRaf = requestAnimationFrame(() => {
-      if (DOM.mainNav) {
-        DOM.mainNav.classList.toggle(
-          'scrolled',
-          window.scrollY > 50
-        );
+    scrollRaf = requestAnimationFrame(() => {
+      if (mainNav) {
+        if (window.scrollY > 50) mainNav.classList.add('scrolled');
+        else mainNav.classList.remove('scrolled');
       }
 
       handleReveal();
-      state.scrollRaf = null;
+      scrollRaf = null;
     });
-  }
-
-  // =========================
-  //  EVENT DELEGATION GLOBAL
-  // =========================
-  function handleClick(e) {
-    const filterBtn = e.target.closest('.menu-filter');
-    if (filterBtn) {
-      filterMenu(
-        filterBtn,
-        filterBtn.dataset.category || 'all'
-      );
-      return;
-    }
-
-    const navLink = e.target.closest('[data-page]');
-    if (navLink) {
-      showPage(navLink.dataset.page);
-    }
   }
 
   // =========================
   //  INIT
   // =========================
   function init() {
-    const initialPage =
-      window.location.hash.slice(1) || 'home';
+    const initialPage = window.location.hash.replace('#', '') || 'home';
 
-    history.replaceState(
-      { page: initialPage },
-      "",
-      "#" + initialPage
-    );
-
+    history.replaceState({ page: initialPage }, "", "#" + initialPage);
     showPage(initialPage, false);
 
     handleReveal();
@@ -826,33 +778,46 @@
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleReveal);
-    document.addEventListener('click', handleClick);
 
+    // Boutons filtres : délégation d’événements
+    document.addEventListener('click', (e) => {
+      const filterBtn = e.target.closest('.menu-filter');
+      if (filterBtn) {
+        const category = filterBtn.getAttribute('data-category') || 'all';
+        filterMenu(filterBtn, category);
+        return;
+      }
+
+      const navLink = e.target.closest('[data-page]');
+      if (navLink) {
+        const pageId = navLink.getAttribute('data-page');
+        if (pageId) showPage(pageId);
+      }
+    });
+
+    // Redémarre les slides quand la page redevient visible
     document.addEventListener('visibilitychange', () => {
-      document.hidden ? stopSlideShow() : startSlideShow();
+      if (document.hidden) {
+        stopSlideShow();
+      } else {
+        startSlideShow();
+      }
     });
   }
 
-  // =========================
-  //  BOOTSTRAP
-  // =========================
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
 
-  // =========================
-  //  API PUBLIQUE
-  // =========================
-  window.app = {
-    showPage,
-    goToSlide,
-    filterMenu
-  };
+  // Expose seulement ce qui doit rester accessible depuis le HTML
+  window.showPage = showPage;
+  window.goToSlide = goToSlide;
+  window.filterMenu = filterMenu;
+  window.handleReveal = handleReveal;
 })();
 </script>
-
 
 </body>
 </html>
