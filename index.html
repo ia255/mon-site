@@ -631,21 +631,46 @@
 <a href="https://wa.me/2250707737211" class="whatsapp-float" target="_blank">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
-
 <script>
-  // Gestion de la Navigation
-  function showPage(pageId) {
+  // --- GESTION DE LA NAVIGATION & HISTORIQUE ---
+  function showPage(pageId, saveHistory = true) {
+    // 1. Masquer toutes les pages et afficher la nouvelle
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById('page-' + pageId).classList.add('active');
-    window.scrollTo(0, 0);
+    const targetPage = document.getElementById('page-' + pageId);
     
-    // Fermeture du menu mobile (optionnel pour la suite)
+    if (targetPage) {
+        targetPage.classList.add('active');
+        window.scrollTo(0, 0);
+
+        // 2. Gérer l'historique du navigateur/téléphone
+        if (saveHistory) {
+            // On ajoute un état dans l'historique pour que le bouton "Retour" du téléphone fonctionne
+            history.pushState({ page: pageId }, "", "#" + pageId);
+        }
+    }
     
-    // Révélation au changement de page
     setTimeout(handleReveal, 100);
   }
 
-  // Header au scroll
+  // Écouteur pour le bouton "Retour" physique du téléphone
+  window.addEventListener('popstate', (event) => {
+    if (event.state && event.state.page) {
+        // Si l'utilisateur fait "Retour", on affiche la page stockée dans l'historique
+        showPage(event.state.page, false);
+    } else {
+        // Retour à l'accueil par défaut
+        showPage('home', false);
+    }
+  });
+
+  // Initialisation de l'état de base
+  window.addEventListener('load', () => {
+    history.replaceState({ page: 'home' }, "", "#home");
+    handleReveal();
+  });
+
+  // --- LE RESTE DE TON CODE (CHANGEMENT DE SLIDE, FILTRES, ETC.) ---
+  
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('mainNav');
     if (window.scrollY > 50) nav.classList.add('scrolled');
@@ -653,12 +678,12 @@
     handleReveal();
   });
 
-  // Diaporama Hero
   let currentSlide = 0;
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.slide-dot');
 
   function goToSlide(index) {
+    if(!slides[currentSlide]) return;
     slides[currentSlide].classList.remove('active');
     dots[currentSlide].classList.remove('active');
     currentSlide = index;
@@ -671,7 +696,6 @@
     goToSlide(next);
   }, 6000);
 
-  // Filtrage du Menu Restaurant
   function filterMenu(btn, category) {
     document.querySelectorAll('.menu-filter').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -688,7 +712,6 @@
     });
   }
 
-  // Animation Reveal au scroll
   function handleReveal() {
     const reveals = document.querySelectorAll('.reveal');
     reveals.forEach(el => {
@@ -699,10 +722,8 @@
       }
     });
   }
-
-  // Init
-  window.onload = handleReveal;
 </script>
+
 
 </body>
 </html>
