@@ -26,8 +26,7 @@
       font-family: 'Outfit', sans-serif;
       background: var(--dark);
       color: var(--white);
-      overflow-x: hidden;  
-      overflow-y: auto;
+      overflow-x: hidden;
     }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--dark); }
@@ -321,7 +320,6 @@
   <a class="nav-cta" href="tel:0707737211">Réserver</a>
 </nav>
 
-<!-- HOME -->
 <div class="page active" id="page-home">
   <div class="hero-slides">
     <div class="hero-slide slide-1 active"></div>
@@ -348,7 +346,6 @@
     <div class="scroll-line"></div>
     <span>Défiler</span>
   </div>
-  <!-- Lagoon ambient glow -->
   <div style="position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top, rgba(42,157,143,0.12) 0%, transparent 100%);z-index:1;pointer-events:none;"></div>
   <div class="lagoon-wave">
     <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -358,7 +355,6 @@
   </div>
 </div>
 
-<!-- RESTAURANT -->
 <div class="page" id="page-restaurant">
   <div class="resto-hero">
     <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=85" alt="Restaurant Rave">
@@ -530,46 +526,67 @@
   </footer>
 </div>
 
-<!-- SERVICES -->
 <div class="page" id="page-services">
   <div class="services-header">
     <a class="back-link" onclick="showPage('home')">← Accueil</a>
     <span class="section-tag">Ce que nous offrons</span>
-    <h2 class="section-title">Rave Confort<br><em>& Bien-Être</em></h2>
+    <h2 class="section-title">Plus qu'un séjour,<br><em>une expérience</em></h2>
     <div class="divider"></div>
-    <p class="section-desc">Hébergement, restauration, événements et loisirs réunis en un seul lieu d'exception.</p>
+    <p class="section-desc">Nous avons conçu chaque service pour vous offrir un confort absolu et une tranquillité d'esprit totale durant votre passage chez nous.</p>
   </div>
+
   <div class="services-grid-new">
-    <div class="service-card-new reveal"><span class="sc-icon">🛏️</span><div class="sc-title">Hébergement</div><p class="sc-desc">Longs et courts séjours dans des chambres climatisées, confortables et entièrement équipées.</p><ul class="sc-list"><li>Chambres climatisées</li><li>WiFi haut débit</li><li>Courts et longs séjours</li></ul></div>
-    <div class="service-card-new reveal"><span class="sc-icon">🍽️</span><div class="sc-title">Restauration</div><p class="sc-desc">Cuisine locale et internationale, service en chambre, plats sur place et à emporter.</p><ul class="sc-list"><li>Plats sur place</li><li>Plats à emporter</li><li>Service en chambre</li></ul></div>
-    <div class="service-card-new reveal"><span class="sc-icon">🎉</span><div class="sc-title">Événementiel</div><p class="sc-desc">Organisez vos événements dans un cadre unique — mariages, baptêmes, séminaires.</p><ul class="sc-list"><li>Mariages & anniversaires</li><li>Baptêmes & séminaires</li><li>Réceptions privées</li></ul></div>
-    <div class="service-card-new reveal"><span class="sc-icon">🏊</span><div class="sc-title">Loisirs & Piscine</div><p class="sc-desc">Espace détente avec piscine, terrasse et vue panoramique sur la lagune.</p><ul class="sc-list"><li>Piscine extérieure</li><li>Espace lounge</li><li>Vue sur la lagune</li></ul></div>
-    <div class="service-card-new reveal"><span class="sc-icon">🏢</span><div class="sc-title">Salle de Réunion</div><p class="sc-desc">Salle modulable jusqu'à 120 personnes, équipée pour vos événements professionnels.</p><ul class="sc-list"><li>Capacité 120 personnes</li><li>WiFi rapide inclus</li><li>Décoration & assistance</li></ul></div>
-    <div class="service-card-new reveal"><span class="sc-icon">🔒</span><div class="sc-title">Sécurité & Confort</div><p class="sc-desc">Gardiennage 24h/24, parking privé et accueil personnalisé pour votre tranquillité.</p><ul class="sc-list"><li>Sécurité 24h/24</li><li>Parking privé</li><li>Accueil personnalisé</li></ul></div>
+    <div class="service-card-new reveal">
+      <span class="sc-icon">🏨</span>
+      <h3 class="sc-title">Hébergement Premium</h3>
+      <p class="sc-desc">Des chambres climatisées, spacieuses et décorées avec soin pour vos séjours d'affaires ou de détente.</p>
+      <ul class="sc-list">
+        <li>Smart TV & Netflix</li>
+        <li>Wi-Fi Haut Débit</li>
+        <li>Service de chambre 24h/7</li>
+      </ul>
+    </div>
+    <div class="service-card-new reveal">
+      <span class="sc-icon">🍽️</span>
+      <h3 class="sc-title">Restauration & Bar</h3>
+      <p class="sc-desc">Une carte variée mettant à l'honneur les produits locaux et les classiques internationaux.</p>
+      <ul class="sc-list">
+        <li>Petit-déjeuner inclus</li>
+        <li>Terrasse panoramique</li>
+        <li>Cocktails signatures</li>
+      </ul>
+    </div>
+    <div class="service-card-new reveal">
+      <span class="sc-icon">🚗</span>
+      <h3 class="sc-title">Navette & Parking</h3>
+      <p class="sc-desc">Un accès facilité et sécurisé pour tous nos résidents et les clients du restaurant.</p>
+      <ul class="sc-list">
+        <li>Parking privé sécurisé</li>
+        <li>Transfert aéroport (sur RDV)</li>
+        <li>Lavage auto disponible</li>
+      </ul>
+    </div>
   </div>
+  
   <footer>
     <div><div class="footer-logo-text">Azito Village</div><div class="footer-sub-text">Les Résidences Rave</div></div>
     <div class="footer-copy">© 2026 — Yopougon, Abidjan</div>
   </footer>
 </div>
 
-<!-- GALERIE -->
 <div class="page" id="page-galerie">
   <div class="galerie-header">
     <a class="back-link" onclick="showPage('home')">← Accueil</a>
-    <span class="section-tag">Notre cadre</span>
-    <h2 class="section-title">Un environnement<br><em>soigné</em> dans chaque détail</h2>
-    <div class="divider"></div>
+    <span class="section-tag">Instantanés</span>
+    <h2 class="section-title">L'album de <em>vos souvenirs</em></h2>
   </div>
   <div class="masonry-grid">
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80" alt="Suite"><div class="masonry-label">Suite principale</div></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Restaurant"><div class="masonry-label">Restaurant</div></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?w=800&q=80" alt="Chambre"><div class="masonry-label">Chambre standard</div></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800&q=80" alt="Détente"><div class="masonry-label">Espace détente</div></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Terrasse"><div class="masonry-label">Terrasse lagune</div></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="Cuisine"><div class="masonry-label">Plats du chef</div></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80" alt="Bar"><div class="masonry-label">Bar & cocktails</div></div>
-    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&q=80" alt="Piscine"><div class="masonry-label">Piscine</div></div>
+    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Chambre"><span class="masonry-label">Nos Suites</span></div>
+    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?w=800" alt="Bar"><span class="masonry-label">Le Bar</span></div>
+    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800" alt="Plat"><span class="masonry-label">Gastronomie</span></div>
+    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" alt="Vue"><span class="masonry-label">Extérieurs</span></div>
+    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1551882547-ff43c63e8c24?w=800" alt="Hôtel"><span class="masonry-label">Détente</span></div>
+    <div class="masonry-item"><img src="https://images.unsplash.com/photo-1590490360182-c33d597353a0?w=800" alt="Chambre Luxe"><span class="masonry-label">Confort</span></div>
   </div>
   <footer>
     <div><div class="footer-logo-text">Azito Village</div><div class="footer-sub-text">Les Résidences Rave</div></div>
@@ -577,31 +594,32 @@
   </footer>
 </div>
 
-<!-- LOCALISATION -->
 <div class="page" id="page-localisation">
   <div class="location-header">
     <a class="back-link" onclick="showPage('home')">← Accueil</a>
     <span class="section-tag">Nous trouver</span>
-    <h2 class="section-title">Au cœur de<br><em>Yopougon</em></h2>
-    <div class="divider"></div>
+    <h2 class="section-title">Au cœur d'<em>Azito</em></h2>
   </div>
   <div class="location-body">
     <div>
-      <div class="info-block"><span class="info-icon">📍</span><div><div class="info-title">Adresse</div><div class="info-text">Yopougon Carrefour Conteneur<br>ou Carrefour Super Marché<br>en bordure de la lagune</div></div></div>
-      <div class="info-block"><span class="info-icon">🕐</span><div><div class="info-title">Accueil & Restaurant</div><div class="info-text">Ouvert 24h/24, 7j/7</div></div></div>
-      <div class="info-block"><span class="info-icon">🚕</span><div><div class="info-title">Accès</div><div class="info-text">Accessible en taxi, woro-woro et véhicule personnel — parking privé sur place</div></div></div>
+      <div class="info-block">
+        <span class="info-icon">📍</span>
+        <div>
+          <div class="info-title">Adresse</div>
+          <div class="info-text">Yopougon Azito Village, non loin de la centrale thermique, Abidjan, Côte d'Ivoire.</div>
+        </div>
+      </div>
       <div class="phones-panel">
         <span class="phones-label">Réservations & Commandes</span>
-        <a class="phone-link" href="tel:0707737211">07 07 73 72 11</a>
-        <a class="phone-link" href="tel:0160838393">01 60 83 83 93</a>
-        <a class="wa-btn" href="https://wa.me/2250707737211">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Commander sur WhatsApp
+        <a href="tel:0707737211" class="phone-link">07 07 73 72 11</a>
+        <a href="https://wa.me/2250707737211" class="wa-btn" target="_blank">
+          <svg viewBox="0 0 24 24" width="18" fill="currentColor" style="margin-right:8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Business
         </a>
       </div>
     </div>
     <div class="map-container">
-      <iframe src="https://maps.google.com/maps?q=Yopougon+Carrefour+Conteneur+Abidjan&t=&z=15&ie=UTF8&iwloc=&output=embed" title="Localisation Azito Village"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15890.380962325785!2d-4.0844222!3d5.3142278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eb603848b783%3A0xc608b8b0e6c6fb1e!2sAzito%20Village%2C%20Abidjan%2C%20C%C3%B4te%20d&#39;Ivoire!5e0!3m2!1sfr!2s!4v1700000000000!5m2!1sfr!2s" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
   <footer>
@@ -610,68 +628,81 @@
   </footer>
 </div>
 
-<a href="https://wa.me/2250707737211" class="whatsapp-float" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+<a href="https://wa.me/2250707737211" class="whatsapp-float" target="_blank">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-  function showPage(name) {
+  // Gestion de la Navigation
+  function showPage(pageId) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    const target = document.getElementById('page-' + name);
-    target.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'instant' });
-    setTimeout(observeReveal, 100);
+    document.getElementById('page-' + pageId).classList.add('active');
+    window.scrollTo(0, 0);
+    
+    // Fermeture du menu mobile (optionnel pour la suite)
+    
+    // Révélation au changement de page
+    setTimeout(handleReveal, 100);
   }
 
+  // Header au scroll
   window.addEventListener('scroll', () => {
-    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+    const nav = document.getElementById('mainNav');
+    if (window.scrollY > 50) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+    handleReveal();
   });
 
+  // Diaporama Hero
   let currentSlide = 0;
   const slides = document.querySelectorAll('.hero-slide');
   const dots = document.querySelectorAll('.slide-dot');
 
-  function goToSlide(n) {
+  function goToSlide(index) {
     slides[currentSlide].classList.remove('active');
     dots[currentSlide].classList.remove('active');
-    currentSlide = n;
+    currentSlide = index;
     slides[currentSlide].classList.add('active');
     dots[currentSlide].classList.add('active');
   }
-  setInterval(() => goToSlide((currentSlide + 1) % slides.length), 5000);
 
-  function filterMenu(btn, cat) {
+  setInterval(() => {
+    let next = (currentSlide + 1) % slides.length;
+    goToSlide(next);
+  }, 6000);
+
+  // Filtrage du Menu Restaurant
+  function filterMenu(btn, category) {
     document.querySelectorAll('.menu-filter').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.dish-card').forEach(card => {
-      if (cat === 'all' || card.dataset.cat === cat) {
-        card.style.display = '';
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(16px)';
-        setTimeout(() => {
-          card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 50);
+
+    const cards = document.querySelectorAll('.dish-card');
+    cards.forEach(card => {
+      if (category === 'all' || card.getAttribute('data-cat') === category) {
+        card.style.display = 'block';
+        setTimeout(() => card.style.opacity = '1', 10);
       } else {
-        card.style.display = 'none';
+        card.style.opacity = '0';
+        setTimeout(() => card.style.display = 'none', 350);
       }
     });
   }
 
-  function observeReveal() {
-    const reveals = document.querySelectorAll('.page.active .reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 80);
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
+  // Animation Reveal au scroll
+  function handleReveal() {
+    const reveals = document.querySelectorAll('.reveal');
+    reveals.forEach(el => {
+      const windowHeight = window.innerHeight;
+      const revealTop = el.getBoundingClientRect().top;
+      if (revealTop < windowHeight - 50) {
+        el.classList.add('visible');
+      }
+    });
   }
-  observeReveal();
+
+  // Init
+  window.onload = handleReveal;
 </script>
+
 </body>
 </html>
