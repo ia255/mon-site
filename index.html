@@ -41,7 +41,7 @@
       border-bottom: 1px solid transparent;
     }
     nav.scrolled {
-      background: rgba(10,13,15,0.96);
+      background: rgba(8,13,14,0.96);
       backdrop-filter: blur(12px);
       border-bottom-color: var(--dark-border);
       padding: 12px 48px;
@@ -52,7 +52,7 @@
     .nav-links { display: flex; gap: 32px; align-items: center; }
     .nav-link {
       font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: rgba(247,243,238,0.65); text-decoration: none;
+      color: rgba(240,247,246,0.65); text-decoration: none;
       cursor: pointer; transition: color 0.3s; position: relative;
     }
     .nav-link::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--lagoon); transform: scaleX(0); transition: transform 0.3s; }
@@ -108,7 +108,7 @@
     .hero-title em { font-style: italic; color: var(--gold-light); }
     .hero-title strong { display: block; font-weight: 600; font-size: clamp(56px, 8.5vw, 108px); }
     .hero-slogan { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--lagoon-light); margin-bottom: 20px; animation: slideRight 0.9s ease 0.5s both; }
-    .hero-sub { font-size: 15px; font-weight: 300; color: rgba(247,243,238,0.55); max-width: 380px; line-height: 1.75; margin-bottom: 48px; animation: slideRight 0.9s ease 0.65s both; }
+    .hero-sub { font-size: 15px; font-weight: 300; color: rgba(240,247,246,0.55); max-width: 380px; line-height: 1.75; margin-bottom: 48px; animation: slideRight 0.9s ease 0.65s both; }
     .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; animation: slideRight 0.9s ease 0.8s both; }
     .btn-gold {
       display: inline-block; padding: 15px 36px;
@@ -121,16 +121,20 @@
       display: inline-block; padding: 15px 36px;
       background: transparent; color: var(--white);
       font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
-      text-decoration: none; border-radius: 2px; border: 1px solid rgba(247,243,238,0.3);
+      text-decoration: none; border-radius: 2px; border: 1px solid rgba(240,247,246,0.3);
       cursor: pointer; transition: all 0.3s;
     }
-    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .btn-outline:hover { border-color: var(--lagoon); color: var(--lagoon-light); }
     .slide-dots { position: absolute; bottom: 40px; left: 10vw; display: flex; gap: 8px; z-index: 3; }
-    .slide-dot { width: 24px; height: 2px; background: rgba(247,243,238,0.3); cursor: pointer; transition: background 0.3s, width 0.3s; }
+    .slide-dot { width: 24px; height: 2px; background: rgba(240,247,246,0.3); cursor: pointer; transition: background 0.3s, width 0.3s; }
     .slide-dot.active { background: var(--lagoon-light); width: 40px; }
     .scroll-hint { position: absolute; bottom: 40px; right: 10vw; display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 3; opacity: 0.5; }
     .scroll-hint span { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; writing-mode: vertical-rl; }
     .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--lagoon-light), transparent); animation: scrollPulse 2s ease infinite; }
+
+    /* LAGOON WAVE */
+    .lagoon-wave { position: absolute; bottom: 0; left: 0; right: 0; z-index: 1; height: 80px; overflow: hidden; pointer-events: none; }
+    .lagoon-wave svg { width: 100%; height: 100%; }
 
     /* RESTAURANT */
     #page-restaurant { background: var(--dark); }
@@ -139,7 +143,7 @@
     #page-restaurant.active .resto-hero img { transform: scale(1); }
     .resto-hero-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom, rgba(10,13,15,0.3) 0%, rgba(10,13,15,0.9) 100%);
+      background: linear-gradient(to bottom, rgba(8,13,14,0.3) 0%, rgba(8,13,14,0.92) 100%);
       display: flex; align-items: flex-end; padding: 50px 10vw;
     }
     .resto-hero-text h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 62px); font-weight: 300; line-height: 1.05; }
@@ -148,11 +152,11 @@
     .menu-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 60px; }
     .menu-intro-quote {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(22px, 3vw, 32px); font-style: italic;
-      color: var(--lagoon-light); line-height: 1.5;
-      border-left: 2px solid var(--lagoon); padding-left: 24px;
+      font-size: clamp(20px, 2.5vw, 30px); font-style: italic;
+      color: var(--lagoon-light); line-height: 1.6;
+      border-left: 2px solid var(--lagoon);
       background: linear-gradient(135deg, rgba(42,157,143,0.07), transparent);
-      padding: 24px 24px;
+      padding: 28px 28px;
     }
     .menu-filters { display: flex; gap: 0; margin-bottom: 40px; border-bottom: 1px solid var(--dark-border); overflow-x: auto; scrollbar-width: none; }
     .menu-filter {
@@ -166,7 +170,7 @@
     .menu-filter:hover { color: var(--lagoon-light); }
     .dishes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1px; background: var(--dark-border); border: 1px solid var(--dark-border); }
     .dish-card { background: var(--dark-card); overflow: hidden; position: relative; transition: background 0.35s; }
-    .dish-card:hover { background: #161C26; }
+    .dish-card:hover { background: #121E20; }
     .dish-img { height: 200px; overflow: hidden; position: relative; }
     .dish-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease, filter 0.4s; filter: brightness(0.85) saturate(0.9); }
     .dish-card:hover .dish-img img { transform: scale(1.06); filter: brightness(1) saturate(1.05); }
@@ -178,11 +182,15 @@
     .dish-footer { display: flex; justify-content: space-between; align-items: center; }
     .dish-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold-light); letter-spacing: 0.5px; }
     .dish-tag { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--dark-border); padding: 4px 10px; border-radius: 1px; }
+
+    /* Ambiance */
     .ambiance-band { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--dark-border); border-top: 1px solid var(--dark-border); border-bottom: 1px solid var(--dark-border); margin: 60px 0; }
     .ambiance-item { position: relative; height: 260px; overflow: hidden; }
     .ambiance-item img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6) saturate(0.8); transition: filter 0.5s, transform 0.6s; }
     .ambiance-item:hover img { filter: brightness(0.85) saturate(1); transform: scale(1.04); }
     .ambiance-label { position: absolute; bottom: 20px; left: 20px; font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--white); }
+
+    /* Delivery CTA */
     .delivery-cta {
       background: linear-gradient(135deg, #080D0E 0%, #0D2020 40%, #0F1A0A 70%, #080D0E 100%);
       border: 1px solid rgba(42,157,143,0.25);
@@ -205,8 +213,8 @@
     .services-header { padding: 120px 10vw 60px; }
     .services-grid-new { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--dark-border); border: 1px solid var(--dark-border); margin: 0 10vw 80px; }
     .service-card-new { background: var(--dark-card); padding: 36px 30px; transition: background 0.35s; position: relative; overflow: hidden; }
-    .service-card-new::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--lagoon); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
-    .service-card-new:hover { background: #161C26; }
+    .service-card-new::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, var(--lagoon), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+    .service-card-new:hover { background: #121E20; }
     .service-card-new:hover::before { transform: scaleX(1); }
     .sc-icon { font-size: 28px; margin-bottom: 18px; display: block; }
     .sc-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; margin-bottom: 10px; }
@@ -221,7 +229,7 @@
     .masonry-item { break-inside: avoid; margin-bottom: 6px; overflow: hidden; position: relative; }
     .masonry-item img { width: 100%; display: block; filter: brightness(0.8) saturate(0.85); transition: filter 0.5s, transform 0.6s; }
     .masonry-item:hover img { filter: brightness(1) saturate(1.1); transform: scale(1.03); }
-    .masonry-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px 16px; background: linear-gradient(to top, rgba(10,13,15,0.8), transparent); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(247,243,238,0.6); opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s; }
+    .masonry-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 16px 16px; background: linear-gradient(to top, rgba(8,13,14,0.85), transparent); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(240,247,246,0.7); opacity: 0; transform: translateY(6px); transition: opacity 0.3s, transform 0.3s; }
     .masonry-item:hover .masonry-label { opacity: 1; transform: translateY(0); }
 
     /* LOCALISATION */
@@ -235,7 +243,7 @@
     .phones-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 20px; display: block; }
     .phone-link { display: block; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--gold); letter-spacing: 1px; text-decoration: none; margin-bottom: 8px; transition: color 0.2s, transform 0.2s; }
     .phone-link:hover { color: var(--lagoon-light); transform: translateX(4px); }
-    .wa-btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; padding: 14px 28px; background: #1A3A23; border: 1px solid #25D366; color: #25D366; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.3s; }
+    .wa-btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; padding: 14px 28px; background: #0D2015; border: 1px solid #25D366; color: #25D366; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: all 0.3s; }
     .wa-btn:hover { background: #25D366; color: var(--dark); }
     .map-container { border: 1px solid var(--dark-border); border-radius: 2px; overflow: hidden; height: 100%; min-height: 400px; }
     .map-container iframe { width: 100%; height: 100%; border: none; display: block; }
@@ -251,16 +259,9 @@
     .back-link:hover { color: var(--lagoon-light); gap: 12px; }
 
     /* FOOTER */
-    footer { background: #06080A; padding: 48px 10vw; border-top: 1px solid var(--dark-border); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; }
+    footer { background: #040708; padding: 48px 10vw; border-top: 1px solid var(--dark-border); display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; }
     .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); margin-bottom: 4px; }
     .footer-sub-text { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--lagoon); }
-
-    /* LAGOON WAVE EFFECT */
-    .lagoon-wave {
-      position: absolute; bottom: 0; left: 0; right: 0; z-index: 1;
-      height: 80px; overflow: hidden; pointer-events: none;
-    }
-    .lagoon-wave svg { width: 100%; height: 100%; }
     .footer-copy { font-size: 11px; color: var(--dark-border); text-align: right; }
 
     /* WHATSAPP */
@@ -320,6 +321,7 @@
   <a class="nav-cta" href="tel:0707737211">Réserver</a>
 </nav>
 
+<!-- HOME -->
 <div class="page active" id="page-home">
   <div class="hero-slides">
     <div class="hero-slide slide-1 active"></div>
@@ -355,6 +357,7 @@
   </div>
 </div>
 
+<!-- RESTAURANT -->
 <div class="page" id="page-restaurant">
   <div class="resto-hero">
     <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=85" alt="Restaurant Rave">
@@ -365,7 +368,6 @@
       </div>
     </div>
   </div>
-
   <div class="menu-section">
     <a class="back-link" onclick="showPage('home')">← Accueil</a>
     <div class="menu-intro">
@@ -373,27 +375,22 @@
         <span class="section-tag">Restauration</span>
         <h2 class="section-title">Une cuisine<br><em>locale & internationale</em></h2>
         <div class="divider"></div>
-        <p class="section-desc">Du petit-déjeuner au dîner, notre chef vous propose des plats généreux et savoureux — à déguster sur place, en terrasse ou en chambre.</p>
+        <p class="section-desc">Du petit-déjeuner au dîner, notre chef vous propose des plats généreux et savoureux — à déguster sur place, en terrasse face à la lagune, ou directement en chambre.</p>
       </div>
       <div class="menu-intro-quote reveal">
         « Chaque repas est une invitation au voyage — entre saveurs ivoiriennes authentiques et inspirations du monde entier. »
       </div>
     </div>
-
     <div class="menu-filters">
-      <button class="menu-filter active" onclick="filterMenu(this,'all')">Tout le menu</button>
-      <button class="menu-filter" onclick="filterMenu(this,'local')">Cuisine locale</button>
-      <button class="menu-filter" onclick="filterMenu(this,'international')">International</button>
-      <button class="menu-filter" onclick="filterMenu(this,'boisson')">Boissons</button>
-      <button class="menu-filter" onclick="filterMenu(this,'dessert')">Desserts</button>
+      <button class="menu-filter active" data-category="all" onclick="filterMenu(this,'all')">Tout le menu</button>
+      <button class="menu-filter" data-category="local" onclick="filterMenu(this,'local')">Cuisine locale</button>
+      <button class="menu-filter" data-category="international" onclick="filterMenu(this,'international')">International</button>
+      <button class="menu-filter" data-category="boisson" onclick="filterMenu(this,'boisson')">Boissons</button>
+      <button class="menu-filter" data-category="dessert" onclick="filterMenu(this,'dessert')">Desserts</button>
     </div>
-
     <div class="dishes-grid" id="dishesGrid">
       <div class="dish-card reveal" data-cat="local">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600&q=80" alt="Attiéké poisson">
-          <span class="dish-badge">Signature</span>
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600&q=80" alt="Attiéké poisson"><span class="dish-badge">Signature</span></div>
         <div class="dish-body">
           <div class="dish-category">Cuisine locale</div>
           <div class="dish-name">Attiéké Poisson Braisé</div>
@@ -402,9 +399,7 @@
         </div>
       </div>
       <div class="dish-card reveal" data-cat="local">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80" alt="Kedjenou">
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&q=80" alt="Kedjenou"></div>
         <div class="dish-body">
           <div class="dish-category">Cuisine locale</div>
           <div class="dish-name">Kédjénou de Poulet</div>
@@ -413,9 +408,7 @@
         </div>
       </div>
       <div class="dish-card reveal" data-cat="local">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Riz gras">
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Riz gras"></div>
         <div class="dish-body">
           <div class="dish-category">Cuisine locale</div>
           <div class="dish-name">Riz Gras Garni</div>
@@ -424,10 +417,7 @@
         </div>
       </div>
       <div class="dish-card reveal" data-cat="international">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&q=80" alt="Burger">
-          <span class="dish-badge">Populaire</span>
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600&q=80" alt="Burger"><span class="dish-badge">Populaire</span></div>
         <div class="dish-body">
           <div class="dish-category">International</div>
           <div class="dish-name">Burger Rave Spécial</div>
@@ -436,9 +426,7 @@
         </div>
       </div>
       <div class="dish-card reveal" data-cat="international">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Breakfast">
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Breakfast"></div>
         <div class="dish-body">
           <div class="dish-category">International</div>
           <div class="dish-name">Petit-Déjeuner Continental</div>
@@ -447,10 +435,7 @@
         </div>
       </div>
       <div class="dish-card reveal" data-cat="boisson">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1560526860-1f0e56046c85?w=600&q=80" alt="Cocktail">
-          <span class="dish-badge">Bar</span>
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1560526860-1f0e56046c85?w=600&q=80" alt="Cocktail"><span class="dish-badge">Bar</span></div>
         <div class="dish-body">
           <div class="dish-category">Boissons</div>
           <div class="dish-name">Cocktails & Jus Frais</div>
@@ -459,9 +444,7 @@
         </div>
       </div>
       <div class="dish-card reveal" data-cat="dessert">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&q=80" alt="Dessert">
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600&q=80" alt="Dessert"></div>
         <div class="dish-body">
           <div class="dish-category">Desserts</div>
           <div class="dish-name">Fondant Chocolat & Banane</div>
@@ -470,9 +453,7 @@
         </div>
       </div>
       <div class="dish-card reveal" data-cat="local">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80" alt="Brochettes">
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80" alt="Brochettes"></div>
         <div class="dish-body">
           <div class="dish-category">Cuisine locale</div>
           <div class="dish-name">Brochettes de Bœuf Grillées</div>
@@ -481,9 +462,7 @@
         </div>
       </div>
       <div class="dish-card reveal" data-cat="international">
-        <div class="dish-img">
-          <img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=600&q=80" alt="Salade">
-        </div>
+        <div class="dish-img"><img src="https://images.unsplash.com/photo-1481931098730-318b6f776db0?w=600&q=80" alt="Salade"></div>
         <div class="dish-body">
           <div class="dish-category">International</div>
           <div class="dish-name">Salade Fraîcheur Rave</div>
@@ -492,22 +471,11 @@
         </div>
       </div>
     </div>
-
     <div class="ambiance-band">
-      <div class="ambiance-item">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Salle">
-        <span class="ambiance-label">Salle principale</span>
-      </div>
-      <div class="ambiance-item">
-        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Terrasse">
-        <span class="ambiance-label">Terrasse lagune</span>
-      </div>
-      <div class="ambiance-item">
-        <img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80" alt="Bar">
-        <span class="ambiance-label">Bar & cocktails</span>
-      </div>
+      <div class="ambiance-item"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80" alt="Salle"><span class="ambiance-label">Salle principale</span></div>
+      <div class="ambiance-item"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80" alt="Terrasse"><span class="ambiance-label">Terrasse lagune</span></div>
+      <div class="ambiance-item"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=800&q=80" alt="Bar"><span class="ambiance-label">Bar & cocktails</span></div>
     </div>
-
     <div class="delivery-cta">
       <div>
         <h3>Commandez à <em>emporter</em><br>ou en chambre</h3>
@@ -515,17 +483,17 @@
       </div>
       <div class="delivery-actions">
         <a class="btn-gold" href="tel:0707737211">📞 Commander</a>
-        <a class="btn-outline" href="https://wa.me/2250707737211">WhatsApp</a>
+        <a class="btn-outline" href="https://wa.me/2250707737211" target="_blank">WhatsApp</a>
       </div>
     </div>
   </div>
-
   <footer>
     <div><div class="footer-logo-text">Azito Village</div><div class="footer-sub-text">Les Résidences Rave</div></div>
     <div class="footer-copy">© 2026 — Yopougon, Abidjan</div>
   </footer>
 </div>
 
+<!-- SERVICES -->
 <div class="page" id="page-services">
   <div class="services-header">
     <a class="back-link" onclick="showPage('home')">← Accueil</a>
@@ -534,51 +502,27 @@
     <div class="divider"></div>
     <p class="section-desc">Nous avons conçu chaque service pour vous offrir un confort absolu et une tranquillité d'esprit totale durant votre passage chez nous.</p>
   </div>
-
   <div class="services-grid-new">
-    <div class="service-card-new reveal">
-      <span class="sc-icon">🏨</span>
-      <h3 class="sc-title">Hébergement Premium</h3>
-      <p class="sc-desc">Des chambres climatisées, spacieuses et décorées avec soin pour vos séjours d'affaires ou de détente.</p>
-      <ul class="sc-list">
-        <li>Smart TV & Netflix</li>
-        <li>Wi-Fi Haut Débit</li>
-        <li>Service de chambre 24h/7</li>
-      </ul>
-    </div>
-    <div class="service-card-new reveal">
-      <span class="sc-icon">🍽️</span>
-      <h3 class="sc-title">Restauration & Bar</h3>
-      <p class="sc-desc">Une carte variée mettant à l'honneur les produits locaux et les classiques internationaux.</p>
-      <ul class="sc-list">
-        <li>Petit-déjeuner inclus</li>
-        <li>Terrasse panoramique</li>
-        <li>Cocktails signatures</li>
-      </ul>
-    </div>
-    <div class="service-card-new reveal">
-      <span class="sc-icon">🚗</span>
-      <h3 class="sc-title">Navette & Parking</h3>
-      <p class="sc-desc">Un accès facilité et sécurisé pour tous nos résidents et les clients du restaurant.</p>
-      <ul class="sc-list">
-        <li>Parking privé sécurisé</li>
-        <li>Transfert aéroport (sur RDV)</li>
-        <li>Lavage auto disponible</li>
-      </ul>
-    </div>
+    <div class="service-card-new reveal"><span class="sc-icon">🏨</span><h3 class="sc-title">Hébergement Premium</h3><p class="sc-desc">Des chambres climatisées, spacieuses et décorées avec soin pour vos séjours d'affaires ou de détente.</p><ul class="sc-list"><li>Smart TV & Netflix</li><li>Wi-Fi Haut Débit</li><li>Service de chambre 24h/7</li></ul></div>
+    <div class="service-card-new reveal"><span class="sc-icon">🍽️</span><h3 class="sc-title">Restauration & Bar</h3><p class="sc-desc">Une carte variée mettant à l'honneur les produits locaux et les classiques internationaux.</p><ul class="sc-list"><li>Petit-déjeuner inclus</li><li>Terrasse panoramique</li><li>Cocktails signatures</li></ul></div>
+    <div class="service-card-new reveal"><span class="sc-icon">🚗</span><h3 class="sc-title">Navette & Parking</h3><p class="sc-desc">Un accès facilité et sécurisé pour tous nos résidents et les clients du restaurant.</p><ul class="sc-list"><li>Parking privé sécurisé</li><li>Transfert aéroport (sur RDV)</li><li>Lavage auto disponible</li></ul></div>
+    <div class="service-card-new reveal"><span class="sc-icon">🎉</span><h3 class="sc-title">Événementiel</h3><p class="sc-desc">Organisez vos événements dans un cadre unique face à la lagune — mariages, baptêmes, séminaires.</p><ul class="sc-list"><li>Mariages & anniversaires</li><li>Baptêmes & séminaires</li><li>Réceptions privées</li></ul></div>
+    <div class="service-card-new reveal"><span class="sc-icon">🏊</span><h3 class="sc-title">Loisirs & Piscine</h3><p class="sc-desc">Espace détente avec piscine extérieure, terrasse et vue panoramique sur la lagune d'Abidjan.</p><ul class="sc-list"><li>Piscine extérieure</li><li>Espace lounge</li><li>Vue lagune</li></ul></div>
+    <div class="service-card-new reveal"><span class="sc-icon">🔒</span><h3 class="sc-title">Sécurité & Confort</h3><p class="sc-desc">Gardiennage 24h/24, parking privé et accueil personnalisé pour votre tranquillité totale.</p><ul class="sc-list"><li>Sécurité 24h/24</li><li>Parking privé</li><li>Accueil personnalisé</li></ul></div>
   </div>
-  
   <footer>
     <div><div class="footer-logo-text">Azito Village</div><div class="footer-sub-text">Les Résidences Rave</div></div>
     <div class="footer-copy">© 2026 — Yopougon, Abidjan</div>
   </footer>
 </div>
 
+<!-- GALERIE -->
 <div class="page" id="page-galerie">
   <div class="galerie-header">
     <a class="back-link" onclick="showPage('home')">← Accueil</a>
     <span class="section-tag">Instantanés</span>
     <h2 class="section-title">L'album de <em>vos souvenirs</em></h2>
+    <div class="divider"></div>
   </div>
   <div class="masonry-grid">
     <div class="masonry-item"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800" alt="Chambre"><span class="masonry-label">Nos Suites</span></div>
@@ -594,32 +538,40 @@
   </footer>
 </div>
 
+<!-- LOCALISATION -->
 <div class="page" id="page-localisation">
   <div class="location-header">
     <a class="back-link" onclick="showPage('home')">← Accueil</a>
     <span class="section-tag">Nous trouver</span>
     <h2 class="section-title">Au cœur d'<em>Azito</em></h2>
+    <div class="divider"></div>
   </div>
   <div class="location-body">
     <div>
       <div class="info-block">
         <span class="info-icon">📍</span>
-        <div>
-          <div class="info-title">Adresse</div>
-          <div class="info-text">Yopougon Azito Village, non loin de la centrale thermique, Abidjan, Côte d'Ivoire.</div>
-        </div>
+        <div><div class="info-title">Adresse</div><div class="info-text">Yopougon Azito Village, non loin de la centrale thermique, Abidjan, Côte d'Ivoire.</div></div>
+      </div>
+      <div class="info-block">
+        <span class="info-icon">🌊</span>
+        <div><div class="info-title">En bord de lagune</div><div class="info-text">La résidence est implantée directement au bord de la lagune Ebrié — profitez d'une vue et d'une brise uniques.</div></div>
+      </div>
+      <div class="info-block">
+        <span class="info-icon">🕐</span>
+        <div><div class="info-title">Accueil & Restaurant</div><div class="info-text">Ouvert 24h/24, 7j/7</div></div>
       </div>
       <div class="phones-panel">
         <span class="phones-label">Réservations & Commandes</span>
         <a href="tel:0707737211" class="phone-link">07 07 73 72 11</a>
+        <a href="tel:0160838393" class="phone-link">01 60 83 83 93</a>
         <a href="https://wa.me/2250707737211" class="wa-btn" target="_blank">
-          <svg viewBox="0 0 24 24" width="18" fill="currentColor" style="margin-right:8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <svg viewBox="0 0 24 24" width="16" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           WhatsApp Business
         </a>
       </div>
     </div>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15890.380962325785!2d-4.0844222!3d5.3142278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eb603848b783%3A0xc608b8b0e6c6fb1e!2sAzito%20Village%2C%20Abidjan%2C%20C%C3%B4te%20d&#39;Ivoire!5e0!3m2!1sfr!2s!4v1700000000000!5m2!1sfr!2s" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15890.380962325785!2d-4.0844222!3d5.3142278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfc1eb603848b783%3A0xc608b8b0e6c6fb1e!2sAzito%20Village%2C%20Abidjan%2C%20C%C3%B4te%20d'Ivoire!5e0!3m2!1sfr!2s!4v1700000000000!5m2!1sfr!2s" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
   <footer>
@@ -628,16 +580,14 @@
   </footer>
 </div>
 
-<a href="https://wa.me/2250707737211" class="whatsapp-float" target="_blank">
+<a href="https://wa.me/2250707737211" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.438 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
 <script>
 (() => {
   "use strict";
 
-  // =========================
-  //  CACHE DES ÉLÉMENTS
-  // =========================
   const pages = document.querySelectorAll('.page');
   const mainNav = document.getElementById('mainNav');
   const slides = document.querySelectorAll('.hero-slide');
@@ -649,25 +599,15 @@
   let slideTimer = null;
   let scrollRaf = null;
 
-  // =========================
-  //  NAVIGATION / HISTORIQUE
-  // =========================
+  // NAVIGATION
   function showPage(pageId, saveHistory = true) {
     pages.forEach(page => page.classList.remove('active'));
-
     const targetPage = document.getElementById('page-' + pageId);
     if (!targetPage) return;
-
     targetPage.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'instant' });
-
-    if (saveHistory) {
-      history.pushState({ page: pageId }, "", "#" + pageId);
-    }
-
-    requestAnimationFrame(() => {
-      handleReveal();
-    });
+    if (saveHistory) history.pushState({ page: pageId }, "", "#" + pageId);
+    requestAnimationFrame(handleReveal);
   }
 
   window.addEventListener('popstate', (event) => {
@@ -675,149 +615,82 @@
     showPage(page, false);
   });
 
-  // =========================
-  //  SLIDES
-  // =========================
+  // SLIDES
   function goToSlide(index) {
     if (!slides.length || !dots.length) return;
-    if (!slides[currentSlide] || !dots[currentSlide]) return;
-
     slides[currentSlide].classList.remove('active');
     dots[currentSlide].classList.remove('active');
-
     currentSlide = index % slides.length;
-
-    if (slides[currentSlide]) slides[currentSlide].classList.add('active');
-    if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
   }
 
   function startSlideShow() {
     if (slides.length <= 1) return;
-
     stopSlideShow();
-    slideTimer = setInterval(() => {
-      goToSlide(currentSlide + 1);
-    }, 6000);
+    slideTimer = setInterval(() => goToSlide(currentSlide + 1), 6000);
   }
 
   function stopSlideShow() {
-    if (slideTimer) {
-      clearInterval(slideTimer);
-      slideTimer = null;
-    }
+    if (slideTimer) { clearInterval(slideTimer); slideTimer = null; }
   }
 
-  // =========================
-  //  FILTRE MENU
-  // =========================
+  // MENU FILTER
   function filterMenu(btn, category) {
     menuFilters.forEach(b => b.classList.remove('active'));
     if (btn) btn.classList.add('active');
-
     dishCards.forEach(card => {
       const match = category === 'all' || card.dataset.cat === category;
-
       if (match) {
         card.style.display = 'block';
-        requestAnimationFrame(() => {
-          card.style.opacity = '1';
-        });
+        requestAnimationFrame(() => { card.style.opacity = '1'; });
       } else {
         card.style.opacity = '0';
-        setTimeout(() => {
-          if (card.style.opacity === '0') {
-            card.style.display = 'none';
-          }
-        }, 300);
+        setTimeout(() => { if (card.style.opacity === '0') card.style.display = 'none'; }, 300);
       }
     });
   }
 
-  // =========================
-  //  REVEAL / ANIMATIONS
-  // =========================
+  // REVEAL
   function handleReveal() {
     const reveals = document.querySelectorAll('.reveal');
     const windowHeight = window.innerHeight;
-
     reveals.forEach(el => {
       if (el.classList.contains('visible')) return;
-
-      const revealTop = el.getBoundingClientRect().top;
-      if (revealTop < windowHeight - 50) {
-        el.classList.add('visible');
-      }
+      if (el.getBoundingClientRect().top < windowHeight - 50) el.classList.add('visible');
     });
   }
 
   function handleScroll() {
     if (scrollRaf) return;
-
     scrollRaf = requestAnimationFrame(() => {
-      if (mainNav) {
-        if (window.scrollY > 50) mainNav.classList.add('scrolled');
-        else mainNav.classList.remove('scrolled');
-      }
-
+      if (mainNav) mainNav.classList.toggle('scrolled', window.scrollY > 50);
       handleReveal();
       scrollRaf = null;
     });
   }
 
-  // =========================
-  //  INIT
-  // =========================
+  // INIT
   function init() {
     const initialPage = window.location.hash.replace('#', '') || 'home';
-
     history.replaceState({ page: initialPage }, "", "#" + initialPage);
     showPage(initialPage, false);
-
     handleReveal();
     startSlideShow();
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleReveal);
-
-    // Boutons filtres : délégation d’événements
-    document.addEventListener('click', (e) => {
-      const filterBtn = e.target.closest('.menu-filter');
-      if (filterBtn) {
-        const category = filterBtn.getAttribute('data-category') || 'all';
-        filterMenu(filterBtn, category);
-        return;
-      }
-
-      const navLink = e.target.closest('[data-page]');
-      if (navLink) {
-        const pageId = navLink.getAttribute('data-page');
-        if (pageId) showPage(pageId);
-      }
-    });
-
-    // Redémarre les slides quand la page redevient visible
     document.addEventListener('visibilitychange', () => {
-      if (document.hidden) {
-        stopSlideShow();
-      } else {
-        startSlideShow();
-      }
+      document.hidden ? stopSlideShow() : startSlideShow();
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 
-  // Expose seulement ce qui doit rester accessible depuis le HTML
   window.showPage = showPage;
   window.goToSlide = goToSlide;
   window.filterMenu = filterMenu;
-  window.handleReveal = handleReveal;
 })();
 </script>
-
 </body>
 </html>
